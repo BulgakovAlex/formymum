@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffd1dc; /* Soft pink background */
+            color: #333;
+            text-align: center;
+            scroll-behavior: smooth; /* Smooth scrolling */
+            transition: background-color 0.5s;
+        }
+
+        header {
+            background-color: #ff6f61; /* Coral header */
+            color: #fff;
+            padding: 2em;
+            font-size: 2.5em;
+            transition: background-color 0.5s;
+        }
+
+        nav {
+            background-color: #ffa07a; /* Light salmon navigation bar */
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6f61; /* Highlight link on hover */
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        section {
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s, transform 0.5s ease-in-out, box-shadow 0.5s;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        section:hover {
+            transform: scale(1.05); /* Zoom in on section hover */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeIn 1s ease-out; /* Fade in on page load */
+        }
+
+        section.zoomed {
+            transform: scale(1.1); /* Zoom in on section click */
+        }
+
+        section p {
+            font-size: 1.5em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        section img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1); /* Zoom in on image hover */
+        }
+
+        footer {
+            background-color: #ff6f61; /* Coral footer */
+            color: #fff;
+            padding: 1em;
+            font-size: 1.2em;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        footer:hover {
+            background-color: #ff8c7a; /* Lighter coral on footer hover */
+        }
+
+        @media only screen and (max-width: 600px) {
+            header,
+            footer {
+                font-size: 2em;
+            }
+
+            section p {
+                font-size: 1.2em;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <title>Поздравления с Днем Рождения маме</title>
+</head>
+
+<body>
+    <header>
+        <h1>С днем ​​рождения, мама!</h1>
+    </header>
+
+    <nav>
+        <a href="#intro">Введение</a>
+        <a href="#memories">Воспоминания</a>
+        <a href="#wishes">Пожелания</a>
+    </nav>
+
+    <main>
+        <section id="intro" class="show">
+            <p>Дорогая мама,В твой особенный день хочу передать тебе море благодарности и любви за все, что ты для нас сделала. Ты – неотъемлемая часть нашей семьи, сердце и душа, наполняющие наши дни теплом и заботой. С каждым мгновением твоего присутствия мы осознаем, как важно иметь такого замечательного человека рядом..</p>
+            <img src="happy.jpg" alt="Happy Moments with Mom">
+        </section>
+
+        <section id="memories">
+            <p>Мама, ты всегда была для меня образцом любви и терпения. Вспоминая твои нежные улыбки, понимаю, что в твоем втором измерении живет бесконечная преданность и забота. Ты – моя поддержка в трудные моменты, мудрый советчик и воплощение доброты. С тобой в моих воспоминаниях всегда присутствует тепло и безусловная любовь.</p>
+            <img src="happy_2.jpg" alt="More Happy Moments">
+        </section>
+
+        <section id="wishes">
+            <p>С днем рождения,мам! Твоя невероятная сила и любовь делают твои годы еще более восхитительными. Желаю тебе бескрайней радости, моментов счастья и благополучия. Пусть каждый день приносит тебе удовлетворение и улыбки. Ты – воплощение заботы и мудрости, и я благодарен за каждое мгновение, проведенное с тобой. Люблю тебя, моя невероятная мама!</p>
+            <img src="happy_3.jpg" alt="Celebration Time">
+        </section>
+    </main>
+
+    <footer>
+        <p>Спасибо, мама!</p>
+    </footer>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => section.classList.add('show'));
+
+        // Add click event listener to sections for interactive zoom effect
+        sections.forEach(section => {
+            section.addEventListener('click', function () {
+                this.classList.toggle('zoomed');
+                setTimeout(() => {
+                    this.classList.remove('zoomed');
+                }, 1000); // Remove 'zoomed' class after 1 second
+            });
+        });
+
+        // Add click event listener to memory, wish, and introduction links for interactive zoom effect
+        const memoryLink = document.querySelector('a[href="#memories"]');
+        const wishesLink = document.querySelector('a[href="#wishes"]');
+        const introLink = document.querySelector('a[href="#intro"]');
+
+        memoryLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            const memorySection = document.getElementById('memories');
+            memorySection.classList.add('zoomed');
+            setTimeout(() => {
+                memorySection.classList.remove('zoomed');
+            }, 1000); // Remove 'zoomed' class after 1 second
+            window.location.href = this.getAttribute('href');
+        });
+
+        wishesLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            const wishesSection = document.getElementById('wishes');
+            wishesSection.classList.add('zoomed');
+            setTimeout(() => {
+                wishesSection.classList.remove('zoomed');
+            }, 1000); // Remove 'zoomed' class after 1 second
+            window.location.href = this.getAttribute('href');
+        });
+
+        introLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            const introSection = document.getElementById('intro');
+            introSection.classList.add('zoomed');
+            setTimeout(() => {
+                introSection.classList.remove('zoomed');
+            }, 1000); // Remove 'zoomed' class after 1 second
+            window.location.href = this.getAttribute('href');
+        });
+    });
+	</script>
+
+
+</body>
+
+</html>
